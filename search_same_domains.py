@@ -1,4 +1,5 @@
 import argparse
+import string
 from datetime import datetime
 import socket
 from threading import Thread, Lock
@@ -54,9 +55,8 @@ class Scanning(threading.Thread):
 
 # Добавление символа
 def char_add(word):
-    chars = ['a', 'b', 'c', 'd', 'e', 'f', 'j', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v','w', 'x', 'y', 'z']
-    keywords = tuple(word + char for char in chars)
-    return set(keywords)
+    keywords = tuple(word + char for char in string.ascii_lowercase)
+    return keywords
 
 # Подстановка похожего символа
 def char_replace(word):
